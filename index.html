@@ -35,15 +35,17 @@
 			},
 
 			headers: {
-				"Bearer Token": "this-bearer-string-was-found-in-the-request-header"
+				"Authorization": "Bearer Token this-bearer-string-was-found-in-the-request-header"
 			},
 
 			success: function(data) {
 				console.log(data);
+				alert(data);
 			},
 
 			error: function() {
 				console.log("Error");
+				alert("Something went wrong.");
 			}
 		});
 	});
