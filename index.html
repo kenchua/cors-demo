@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>CORS Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="card" style="width: 18rem;">
+	  <div class="card-body">
+	    <h5 class="card-title">CORS Demo</h5>
+	    <p class="card-text">Simple example to send a cross domain http request</p>
+	    <button id="login" type="button" class="btn btn-primary">Login</button>
+	  </div>
+	</div>
+	
+</body>
+
+<script>
+	$('#login').on('click', function(event) {
+		console.log("Logging in...");
+
+		$.ajax({
+			type: 'GET',
+			url: 'https://cors-springboot-solution-demo.herokuapp.com/login',
+			contentType: 'text/plain',
+
+			xhrFields: {
+				withCredentials: false
+			},
+
+			headers: {
+				"Bearer Token": "this-bearer-string-was-found-in-the-request-header"
+			},
+
+			success: function(data) {
+				console.log(data);
+			},
+
+			error: function() {
+				console.log("Error");
+			}
+		});
+	});
+
+</script>
+
+</html>
