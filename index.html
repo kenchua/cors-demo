@@ -16,6 +16,7 @@
 		    <h5 class="card-title">CORS Demo</h5>
 		    <p class="card-text">Simple example to send a cross domain http request</p>
 		    <button id="login" type="button" class="btn btn-primary">Login</button>
+		    <p id="token" class="card-text"></p>
 		  </div>
 		</div>
 	</div>
@@ -35,17 +36,17 @@
 			},
 
 			headers: {
-				"Authorization": "Bearer Token this-bearer-string-was-found-in-the-request-header"
+				"Authorization": "Bearer Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 			},
 
 			success: function(data) {
 				console.log(data);
-				alert(data);
+				$('#token').html(data);
 			},
 
 			error: function() {
 				console.log("Error");
-				alert("Something went wrong.");
+				$('#token').html("Something went wrong.");
 			}
 		});
 	});
