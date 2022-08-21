@@ -25,6 +25,7 @@
 <script>
 	$('#login').on('click', function(event) {
 		console.log("Logging in...");
+		$('#token').html("");
 
 		$.ajax({
 			type: 'GET',
